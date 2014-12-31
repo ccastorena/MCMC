@@ -1,0 +1,14 @@
+
+#ubuntu Setup
+HOME= /home/user/Documents/Root/SVN/Root/MCMC/trunk
+CXX=g++ -O3  -g -pg -std=gnu++11
+CXXFLAGS= -g  -I $(HOME)/Include -I /usr/local/include
+LIBS = -L/usr/local/lib -lgsl -lgslcblas -lm  -lcppunit -lmysqlcppconn         
+
+.SUFFIXES: .cc
+
+.cpp.o:
+	$(CXX) $(CXXFLAGS) -c $<
+
+.cpp :
+	$(CXX) $(CXXFLAGS) $< -o $@ $(LIBS)
