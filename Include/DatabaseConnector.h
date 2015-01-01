@@ -27,16 +27,16 @@ public:
     DatabaseConnector(std::string hostName, std::string userName,
         std::string userPassword, std::string database);
     DatabaseConnector(const DatabaseConnector& orig);
-    
+
     /** Returns a prepared statement pointer.*/
     sql::PreparedStatement * getPreparedStatement(std::string stmt);
-    
+
     /** exectues the input query and returns true if it executed successfully.*/
     bool execute(std::string query);
-    
+
     /** executes the input query and returns the resuls.*/
     sql::ResultSet* executeQuery(std::string query);
-    
+
     virtual ~DatabaseConnector();
  
 private:

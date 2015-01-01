@@ -13,9 +13,9 @@
 #include <string>
 #include <iostream>
 #include <sstream>
-#include <boost/uuid/uuid.hpp>            // uuid class
-#include <boost/uuid/uuid_generators.hpp> // generators
-#include <boost/uuid/uuid_io.hpp>         // streaming operators etc.
+#include <boost/uuid/uuid.hpp>
+#include <boost/uuid/uuid_generators.hpp>
+#include <boost/uuid/uuid_io.hpp>
 
 CPPUNIT_TEST_SUITE_REGISTRATION(MCMCDatabaseConnectorTest);
 
@@ -41,12 +41,12 @@ void MCMCDatabaseConnectorTest::testConstructor() {
 void MCMCDatabaseConnectorTest::testCreateRun()
 {
     
-    boost::uuids::uuid uuid = boost::uuids::random_generator()();
-    std::cout << uuid << std::endl;
-    
+   
     MCMCDatabaseConnector testObject = MCMCDatabaseConnector("localhost", "tester",
         "password", "MCMCTest");
 
+    boost::uuids::uuid uuid = boost::uuids::random_generator()();
+    std::cout << uuid << std::endl;
     std::stringstream uuidString;
     uuidString << uuid;
     
