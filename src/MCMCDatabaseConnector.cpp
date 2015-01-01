@@ -40,7 +40,7 @@ bool MCMCDatabaseConnector::createRun(std::string runName)
     getRunIdQuery << "select runId from runInfo where runName = \"" << runName << "\";";
     std::cout << getRunIdQuery.str() << std::endl;
     sql::ResultSet* idResults = myConnection->executeQuery(getRunIdQuery.str());
-    idResults->next()
+    idResults->next();
     runId = idResults->getInt(1);
 
 }

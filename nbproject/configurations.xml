@@ -13,9 +13,6 @@
         <in>MCMCDataseConnector.cpp</in>
         <in>main.cpp</in>
       </df>
-      <df name="tests">
-        <in>newtestrunner.cpp</in>
-      </df>
     </df>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -208,8 +205,6 @@
             <pElem>/usr/local/include</pElem>
           </incDir>
         </ccTool>
-      </item>
-      <item path="tests/newtestrunner.cpp" ex="false" tool="1" flavor2="4">
       </item>
     </conf>
   </confs>
