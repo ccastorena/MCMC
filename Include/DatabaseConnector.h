@@ -19,6 +19,7 @@
 #include <cppconn/exception.h>
 #include <cppconn/resultset.h>
 #include <cppconn/statement.h>
+#include <cppconn/prepared_statement.h>
 
 class DatabaseConnector {
 public:
@@ -26,11 +27,18 @@ public:
     DatabaseConnector(std::string hostName, std::string userName,
         std::string userPassword, std::string database);
     DatabaseConnector(const DatabaseConnector& orig);
+    
+    /** Returns a prepared statement pointer.*/
+    sql::PreparedStatement * getPreparedStatement(std::string stmt);
+    
+    /** exectues the input query and returns true if it executed successfully.*/
+    bool execute(std::string query);
+    
+    /** executes the input query and returns the resuls.*/
+    sql::ResultSet* executeQuery(std::string query);
+    
     virtual ~DatabaseConnector();
  
-    bool execute(std::string query);
-    sql::ResultSet* executeQuery(std::string query);
-
 private:
       sql::Driver *driver;
       sql::Connection *con;

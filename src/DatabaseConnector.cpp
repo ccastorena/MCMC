@@ -47,3 +47,8 @@ sql::ResultSet* DatabaseConnector::executeQuery(std::string query)
     result = stmt->executeQuery(query);
     return result;
 }
+
+sql::PreparedStatement * DatabaseConnector::getPreparedStatement(std::string stmt)
+{
+    return con->prepareStatement(stmt);
+}

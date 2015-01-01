@@ -7,14 +7,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/user/Documents/Root/SVN/Root/MCMC/trunk/Include/DatabaseConnector.h</file>
-            <file>file:/home/user/Documents/Root/SVN/Root/MCMC/trunk/Include/DatabaseConnectorTest.h</file>
-            <file>file:/home/user/Documents/Root/SVN/Root/MCMC/trunk/src/main.cpp</file>
-            <file>file:/home/user/Documents/Root/SVN/Root/MCMC/trunk/src/MCMCDatabaseConnector.cpp</file>
-            <file>file:/home/user/Documents/Root/SVN/Root/MCMC/trunk/Include/MCMCDatabaseConnector.h</file>
-            <file>file:/home/user/Documents/Root/SVN/Root/MCMC/trunk/src/Chain.cpp</file>
-            <file>file:/home/user/Documents/Root/SVN/Root/MCMC/trunk/src/DatabaseConnector.cpp</file>
-            <file>file:/home/user/Documents/Root/SVN/Root/MCMC/trunk/src/MCMCDatabaseConnectorTest.cpp</file>
+            <file>file:/home/user/Documents/workspace/MCMC/Include/MCMCDatabaseConnector.h</file>
+            <file>file:/home/user/Documents/workspace/MCMC/Include/DatabaseConnector.h</file>
+            <file>file:/home/user/Documents/workspace/MCMC/src/DatabaseConnector.cpp</file>
+            <file>file:/home/user/Documents/workspace/MCMC/src/Chain.cpp</file>
+            <file>file:/home/user/Documents/workspace/MCMC/Makefile.in</file>
+            <file>file:/home/user/Documents/workspace/MCMC/Include/Chain.h</file>
+            <file>file:/home/user/Documents/workspace/MCMC/src/Makefile</file>
+            <file>file:/home/user/Documents/workspace/MCMC/src/MCMCDatabaseConnector.cpp</file>
+            <file>file:/home/user/Documents/workspace/MCMC/Include/MCMCDatabaseConnectorTest.h</file>
+            <file>file:/home/user/Documents/workspace/MCMC/src/ChainTest.cpp</file>
+            <file>file:/home/user/Documents/workspace/MCMC/Makefile</file>
         </group>
     </open-files>
 </project-private>
