@@ -11,7 +11,6 @@
 #include <cppunit/extensions/HelperMacros.h>
 
 class MCMCDatabaseConnectorTest : public CPPUNIT_NS::TestFixture {
-    
     CPPUNIT_TEST_SUITE(MCMCDatabaseConnectorTest);
     CPPUNIT_TEST(testConstructor);
     CPPUNIT_TEST(testCreateRun);

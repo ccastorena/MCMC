@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   MCMCDataseConnector.h
  * Author: user
  *
@@ -14,13 +14,13 @@ class MCMCDatabaseConnector {
 public:
     MCMCDatabaseConnector();
     MCMCDatabaseConnector(std::string hostName, std::string userName,
-        std::string userPassword, std::string database);
+            std::string userPassword, std::string database);
     MCMCDatabaseConnector(const MCMCDatabaseConnector& orig);
-    
+
     bool createRun(std::string runName);
-    
+
     virtual ~MCMCDatabaseConnector();
-    
+
 private:
     DatabaseConnector* myConnection;
     int runId;

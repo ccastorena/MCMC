@@ -11,11 +11,10 @@
 #include <cppunit/extensions/HelperMacros.h>
 
 class DatabaseConnectorTest : public CPPUNIT_NS::TestFixture {
-    
     CPPUNIT_TEST_SUITE(DatabaseConnectorTest);
     CPPUNIT_TEST(testConstructor);
     CPPUNIT_TEST(testCreatePreparedStatement);
-    CPPUNIT_TEST_SUITE_END(); 
+    CPPUNIT_TEST_SUITE_END();
 
 public:
     DatabaseConnectorTest();

@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   DatabaseConnector.h
  * Author: user
  *
@@ -25,7 +25,7 @@ class DatabaseConnector {
 public:
     DatabaseConnector();
     DatabaseConnector(std::string hostName, std::string userName,
-        std::string userPassword, std::string database);
+            std::string userPassword, std::string database);
     DatabaseConnector(const DatabaseConnector& orig);
 
     /** Returns a prepared statement pointer.*/
@@ -38,10 +38,10 @@ public:
     sql::ResultSet* executeQuery(std::string query);
 
     virtual ~DatabaseConnector();
- 
+
 private:
-      sql::Driver *driver;
-      sql::Connection *con;
+    sql::Driver *driver;
+    sql::Connection *con;
 
 };
 

@@ -17,12 +17,10 @@
       <df name="src">
         <in>Chain.cpp</in>
         <in>ChainTest.cpp</in>
-        <in>ChainTests.cpp</in>
         <in>DatabaseConnector.cpp</in>
         <in>DatabaseConnectorTest.cpp</in>
         <in>MCMCDatabaseConnector.cpp</in>
         <in>MCMCDatabaseConnectorTest.cpp</in>
-        <in>MCMCDataseConnector.cpp</in>
         <in>main.cpp</in>
       </df>
     </df>

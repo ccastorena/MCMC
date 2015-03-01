@@ -16,40 +16,48 @@
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_generators.hpp>
 #include <boost/uuid/uuid_io.hpp>
+CPPUNIT_TEST_SUITE_REGISTRATION ( MCMCDatabaseConnectorTest );
 
-CPPUNIT_TEST_SUITE_REGISTRATION(MCMCDatabaseConnectorTest);
-
-MCMCDatabaseConnectorTest::MCMCDatabaseConnectorTest() {
-}
-
-MCMCDatabaseConnectorTest::~MCMCDatabaseConnectorTest() {
-}
-
-void MCMCDatabaseConnectorTest::setUp() {
-
-}
-
-void MCMCDatabaseConnectorTest::tearDown() {
-}
-
-void MCMCDatabaseConnectorTest::testConstructor() {
-
-    MCMCDatabaseConnector testObject = MCMCDatabaseConnector("localhost", "tester",
-            "password", "MCMCTest");
-}
-
-void MCMCDatabaseConnectorTest::testCreateRun()
+MCMCDatabaseConnectorTest::MCMCDatabaseConnectorTest ( )
 {
-    
-   
-    MCMCDatabaseConnector testObject = MCMCDatabaseConnector("localhost", "tester",
-        "password", "MCMCTest");
+}
 
-    boost::uuids::uuid uuid = boost::uuids::random_generator()();
+MCMCDatabaseConnectorTest::~ MCMCDatabaseConnectorTest ( )
+{
+}
+
+void
+MCMCDatabaseConnectorTest::setUp ( )
+{
+
+}
+
+void
+MCMCDatabaseConnectorTest::tearDown ( )
+{
+}
+
+void
+MCMCDatabaseConnectorTest::testConstructor ( )
+{
+
+    MCMCDatabaseConnector testObject = MCMCDatabaseConnector ( "localhost", "tester",
+                                                               "password", "MCMCTest" );
+}
+
+void
+MCMCDatabaseConnectorTest::testCreateRun ( )
+{
+
+
+    MCMCDatabaseConnector testObject = MCMCDatabaseConnector ( "localhost", "tester",
+                                                               "password", "MCMCTest" );
+
+    boost::uuids::uuid uuid = boost::uuids::random_generator ( )( );
     std::cout << uuid << std::endl;
     std::stringstream uuidString;
     uuidString << uuid;
-    
-    testObject.createRun(uuidString.str());
+
+    testObject.createRun ( uuidString.str ( ) );
 
 }

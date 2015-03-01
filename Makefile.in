@@ -1,7 +1,7 @@
 
-#ubuntu Setup
+#Centos Setup
 HOME= ../
-CXX=g++ -O3  -g -pg -std=gnu++11
+CXX=g++ -O3  -g -pg
 CXXFLAGS= -g  -I $(HOME)/Include -I /usr/local/include
 LIBS = -L/usr/local/lib -lgsl -lgslcblas -lm  -lcppunit -lmysqlcppconn         
 

@@ -54,7 +54,7 @@ public:
                 (double*) calloc(nGenerations, sizeof (double));
 
         logPosteriorValues[0] = posteriorFunction(*startingValue);
-        
+
         for (int i = 1; i < nGenerations; i++) {
             paramType currentValue = samples[i - 1];
             paramType* proposedValue = new paramType();

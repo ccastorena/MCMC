@@ -10,20 +10,20 @@
 
 #include <cppunit/extensions/HelperMacros.h>
 
+
+/** general error tolerance value */
+#define _tolerance 0.0001
+
+/** number of mcmc iterations to run when testing that things converge*/
+#define _nGenerations 10000000
+
 class ChainTest : public CPPUNIT_NS::TestFixture {
-    
-    /** general error tolerance value */
-    double tolerance = 0.0001;
-    
-    /** number of mcmc iterations to run when testing that things converge*/
-    int nGenerations = 10000000;
-    
     CPPUNIT_TEST_SUITE(ChainTest);
 
     CPPUNIT_TEST(testConstructor);
     CPPUNIT_TEST(testAccept);
     CPPUNIT_TEST(testRunChain);
-    
+
     CPPUNIT_TEST_SUITE_END();
 
 public:
