@@ -8,6 +8,8 @@
 #ifndef MCMCDATASECONNECTOR_H
 #define	MCMCDATASECONNECTOR_H
 #include <iostream>
+
+#include "DatabaseConnector.h"
 class DatabaseConnector;
 
 class MCMCDatabaseConnector {
@@ -19,11 +21,14 @@ public:
 
     bool createRun(std::string runName);
 
+    int getRunId(std::string runName);
+
+    bool executeQuery(std::string query){myConnection->execute(query);}
+
     virtual ~MCMCDatabaseConnector();
 
 private:
     DatabaseConnector* myConnection;
-    int runId;
 };
 
 #endif	/* MCMCDATASECONNECTOR_H */

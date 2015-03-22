@@ -33,13 +33,17 @@ bool MCMCDatabaseConnector::createRun(std::string runName)
     std::stringstream insertStatement;
     insertStatement << "insert into runInfo values(NULL, " << "\""
             << runName << "\"" << ", 0)";
-
     myConnection->execute(insertStatement.str());
+    return true;
+}
 
+int MCMCDatabaseConnector::getRunId(std::string runName)
+{
     std::stringstream getRunIdQuery;
     getRunIdQuery << "select runId from runInfo where runName = \"" << runName << "\";";
     std::cout << getRunIdQuery.str() << std::endl;
     sql::ResultSet* idResults = myConnection->executeQuery(getRunIdQuery.str());
     idResults->next();
-    runId = idResults->getInt(1);    
+    int runId = idResults->getInt(1);    
+    return runId;
 }

@@ -13,8 +13,6 @@
 #include <boost/uuid/uuid_generators.hpp>
 #include <boost/uuid/uuid_io.hpp>
 
-CPPUNIT_TEST_SUITE_REGISTRATION(DatabaseConnectorTest);
-
 DatabaseConnectorTest::DatabaseConnectorTest() {
 }
 

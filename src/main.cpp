@@ -13,17 +13,23 @@
 #include <cppunit/TestResult.h>
 #include <cppunit/TestResultCollector.h>
 #include <cppunit/TestRunner.h>
+#include <cppunit/extensions/HelperMacros.h>
 #include "ChainTest.h"
 #include "DatabaseConnectorTest.h"
 #include "MCMCDatabaseConnectorTest.h"
 #include "DatabaseConnector.h"
 
+CPPUNIT_TEST_SUITE_REGISTRATION(DatabaseConnectorTest);
+CPPUNIT_TEST_SUITE_REGISTRATION(MCMCDatabaseConnectorTest);
+CPPUNIT_TEST_SUITE_REGISTRATION(ChainTest);
+
 int main() {
-    
+
+
     // Create the event manager and test controller
     CPPUNIT_NS::TestResult controller;
 
-    // Add a listener that colllects test result
+    // Add a listener that collects test result
     CPPUNIT_NS::TestResultCollector result;
     controller.addListener(&result);
 

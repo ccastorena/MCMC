@@ -1,6 +1,6 @@
 include ../Makefile.in
 
-SRC = main.cpp ChainTest.cpp Chain.cpp MCMCDatabaseConnectorTest.cpp MCMCDatabaseConnector.cpp DatabaseConnectorTest.cpp DatabaseConnector.cpp
+SRC = main.cpp ChainTest.cpp MCMCDatabaseConnectorTest.cpp DatabaseConnectorTest.cpp Chain.cpp  MCMCDatabaseConnector.cpp DatabaseConnector.cpp
 
 OBJ = $(addsuffix .o, $(basename $(SRC)))
 

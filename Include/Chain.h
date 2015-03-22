@@ -12,7 +12,11 @@
 #include <iostream>
 #include  "gsl/gsl_randist.h"
 #include <boost/shared_ptr.hpp>
+#include <boost/uuid/uuid.hpp>
+#include <boost/uuid/uuid_generators.hpp>
+#include <boost/uuid/uuid_io.hpp>
 #include <math.h>
+#include "MCMCDatabaseConnector.h"
 
 #ifndef CHAIN_H
 #define	CHAIN_H
@@ -24,18 +28,31 @@ public:
         gsl_rng_env_setup();
         T = gsl_rng_default;
         r = gsl_rng_alloc(T);
+
+    }
+
+    Chain(
+            std::string runName,
+            std::string userName,
+            std::string password,
+            std::string databaseName,
+            std::string hostName,
+            void (*proposalFunctionParam) (paramType currentVal, paramType* proposedVal, gsl_rng * r),
+            double (*posteriorFunctionParam) (paramType Theta)
+            ) {
+        gsl_rng_env_setup();
+        T = gsl_rng_default;
+        r = gsl_rng_alloc(T);
+        setProposalFunction(proposalFunctionParam);
+        setPosteriorFunction(posteriorFunctionParam);
+
+        m_Connection = new MCMCDatabaseConnector(hostName, userName, password, databaseName);
+        createRun(runName);
+        this->runId = m_Connection->getRunId(runName);
+
     }
 
     virtual ~Chain() {
-    }
-
-    void setProposalFunction(void (*proposalFunctionParam) (
-            paramType currentVal, paramType* proposedVal, gsl_rng * r)) {
-        proposalFunction = proposalFunctionParam;
-    }
-
-    void setPosteriorFunction(double (*posteriorFunctionParam) (paramType Theta)) {
-        posteriorFunction = posteriorFunctionParam;
     }
 
     /**Determines whether or not to accept according to the metropolis-hastings
@@ -70,22 +87,42 @@ public:
                 samples[i] = samples[i - 1];
                 logPosteriorValues[i] = logPosteriorValues[i - 1];
             }
-
-
         }
         free(logPosteriorValues);
         return samples;
-
-
     }
 
 private:
 
+    void setProposalFunction(void (*proposalFunctionParam) (
+            paramType currentVal, paramType* proposedVal, gsl_rng * r)) {
+        proposalFunction = proposalFunctionParam;
+    }
+
+    void setPosteriorFunction(double (*posteriorFunctionParam) (paramType Theta)) {
+        posteriorFunction = posteriorFunctionParam;
+    }
+
+    void createRun(std::string runName) {
+        m_Connection->createRun(runName);
+    }
+
+    void insertSample(paramType* sample)
+    {
+        
+    }
     const gsl_rng_type * T;
+
     gsl_rng * r;
 
     void (*proposalFunction) (paramType currentVal, paramType* proposedVal, gsl_rng * r);
+
     double (*posteriorFunction) (paramType Theta);
+
+    MCMCDatabaseConnector* m_Connection;
+
+    int runId;
+
 };
 
 #endif	/* CHAIN_H */

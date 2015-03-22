@@ -19,10 +19,8 @@ normalProposalFunction ( double currentValue, double* proposedValue, gsl_rng * r
 double
 normalPosteriorFunction ( double Theta )
 {
-    return - Theta*Theta;
+    return log ( gsl_ran_gaussian_pdf ( Theta, 1 ) );
 }
-
-CPPUNIT_TEST_SUITE_REGISTRATION ( ChainTest );
 
 ChainTest::ChainTest ( )
 {
@@ -52,7 +50,6 @@ ChainTest::testConstructor ( )
 void
 ChainTest::testAccept ( )
 {
-
     double logCurrentPosterior = log ( 0.9 );
     double logPropPosterior = log ( 0.8 );
 
@@ -73,9 +70,24 @@ ChainTest::testAccept ( )
 void
 ChainTest::testRunChain ( )
 {
-    Chain<double>* C = new Chain<double>( );
-    C->setPosteriorFunction ( normalPosteriorFunction );
-    C->setProposalFunction ( normalProposalFunction );
+    boost::uuids::uuid uuid = boost::uuids::random_generator ( )( );
+    std::stringstream uuidString;
+    std::stringstream runName;
+    runName << uuid;
+    std::string hostName = "localhost";
+    std::string userName = "tester";
+    std::string password = "password";
+    std::string databaseName = "MCMCTest";
+
+    Chain<double>* C = new Chain<double>(
+                                          runName.str ( ),
+                                          userName,
+                                          password,
+                                          databaseName,
+                                          hostName,
+                                          normalProposalFunction,
+                                          normalPosteriorFunction );
+
     double startingValue = 0;
     double* samples = C->runChain ( &startingValue, _nGenerations );
 
